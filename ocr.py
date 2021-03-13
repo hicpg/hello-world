@@ -1,13 +1,5 @@
 import pyautogui
 import time
-# 구글 크롬 오픈후 최대화후 아래 영역 캡춰.
-# w =  pyautogui.getWindowsWithTitle("YouTube - Chrome")[0]
-# print(w)
-# if w.isActive == False:
-#     w.activate()
-# if w.isMaximized == False:
-#     w.maximize()
-
 from PIL import Image
 import pytesseract
 #pip install pytesseract
@@ -15,12 +7,15 @@ import pytesseract
 #pip install opencv-contrib-python #주요 및 추가 모듈 설치.
 import cv2
 
+# 2021-03-13 Hwang Inchan 구글크롬을 windows10에서 관리자권한으로 실행한다.
+#                         관리자권한이 아닐경우 activate error 발생한다.
 # 해당 탭을 닫거나 다른 탭으로 변경하는 경우 자동 exception발생되어 종료된다.
 w =  pyautogui.getWindowsWithTitle("YouTube - Chrome")[0]
 
 # 5초 마다 무한 loop
 while w is not None:
     text = ''
+    # 구글 크롬 오픈후 최대화후 아래 영역 캡춰.
     if w.isActive == False:
         w.activate()
     if w.isMaximized == False:
