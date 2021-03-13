@@ -6,6 +6,9 @@ import pytesseract
 #pip install opencv-python #주요 모듈 설치.
 #pip install opencv-contrib-python #주요 및 추가 모듈 설치.
 import cv2
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 # 2021-03-13 Hwang Inchan 구글크롬을 windows10에서 관리자권한으로 실행한다.
 #                         관리자권한이 아닐경우 activate error 발생한다.
@@ -54,4 +57,5 @@ while w is not None:
         w =  pyautogui.getWindowsWithTitle("YouTube - Chrome")[0]  
         print(w)
     except:
-        print('YouTube - Chrome is None')
+        #print('YouTube - Chrome is None')
+        logging.info('YouTube - Chrome is None')
